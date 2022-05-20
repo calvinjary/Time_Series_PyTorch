@@ -13,6 +13,7 @@ Features:
 
 
 Comments about Variable names:
+
     "Train" means the data used for training (the ground truth, the data known and used to train the model). "Test" means the unknown data not used to train the model that we used to test the model's accuracy
     "X" implies the input data (meaning the feature information, the input data to the model) and "Y" implies the label (the ground truth, the value to the predicted, the output of the model)
     
