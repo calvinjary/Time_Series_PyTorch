@@ -17,6 +17,7 @@ Comments about Variable names:
     "X" implies the input data (meaning the feature information, the input data to the model) and "Y" implies the label (the ground truth, the value to the predicted, the output of the model)
     
 In the context of the inner workings of the RNN/GRU/LSTM:
+
     X = input
     h = hidden
     o = output
