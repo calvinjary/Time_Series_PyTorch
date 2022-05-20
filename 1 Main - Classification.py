@@ -38,7 +38,7 @@ torch.manual_seed(42)  # this is so the model is deterministic and gives the sam
 
 # Code to activate GPU usage. Remember only the model and the variables need to be explicitly passed to the GPU in the code  # device = torch.device("cuda" if torch.cuda.is_available() else "cpu") # one line version
 if torch.cuda.is_available():
-    device =  torch.device("cpu")    # set the PyTorch Device to the first CUDA device detected. If this breaks change it from "cuda:0" to "cuda"
+    device =  torch.device("cuda")    # set the PyTorch Device to the first CUDA device detected. If this breaks change it from "cuda:0" to "cuda"
     print('Torch CUDA device is: ', torch.cuda.get_device_name(torch.cuda.current_device()))
     #x = torch.cuda.memory_reserved() / 1024**2  # converting bytes to megabytes
     #print('total CUDA memory reserved is:', x, 'MB')  
@@ -310,8 +310,6 @@ classDict = {
 
 start_time = time.time()
 
-Main_Model.train() # set the model to training mode
-
 #num_total_steps = len(train_loader)
 
 
@@ -336,7 +334,8 @@ print('total CUDA memory reserved is:', x, 'MB')
 for epoch in range(Number_Epochs):
 
     for i, (X_TrainProcessed, Y_TrainProcessed) in enumerate(Train_Loader):
-                
+        Main_Model.train() # set the model to training mode
+        
         # clears (zeroes) the gradients with respect to the parameters & hidden states (don't want to accumulate gradients after every epoch)
         optimizer.zero_grad()
 
